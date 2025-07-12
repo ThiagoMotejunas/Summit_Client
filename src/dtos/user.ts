@@ -4,8 +4,3 @@ export default interface User {
   email: string;
   //GET ALL USER PROPERTIES
 }
-
-export interface UserLoginPayloadDTO {
-  login: string;
-  password: string;
-}
