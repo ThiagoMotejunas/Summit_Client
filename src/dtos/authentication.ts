@@ -1,3 +1,8 @@
+export interface LoginPayloadDTO {
+  login: string;
+  password: string;
+}
+
 export interface LoginResponseDTO {
   user: {
     id: string;
@@ -7,7 +12,17 @@ export interface LoginResponseDTO {
   token: string;
 }
 
-export interface LoginPayloadDTO {
+//REGISTRATION
+export interface RegisterPayload {
   login: string;
   password: string;
+}
+
+export interface ResgisterResponseDTO {
+  user: {
+    id: string;
+    name: string;
+    email: string;
+  };
+  token: string;
 }

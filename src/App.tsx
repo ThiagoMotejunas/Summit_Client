@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
 import ProtectedRoute from './components/ProtectedRoute'
 
-const App = () => {
+const App:React.FC = () => {
   return (
     <div>
       <Routes>
