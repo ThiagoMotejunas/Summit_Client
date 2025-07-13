@@ -7,7 +7,7 @@ const ProtectedRoute: React.FC = () => {
     const { user } = useAuth();
 
     return !user ? 
-        <Navigate to={"/login"} replace /> : 
+        <Navigate to={"/login"} /> :
         <Outlet />;
 };
 

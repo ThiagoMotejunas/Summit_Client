@@ -1,13 +1,17 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
+import LoginPage from './pages/LoginPage'
+import ProtectedRoute from './components/ProtectedRoute'
 
-const App = () => {
+const App:React.FC = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<>HOME</>} />
-        <Route path="/about" element={<>ABOUT</>} />
-        <Route path="/contact" element={<>CONTACT</>} />
+        <Route path='/login' element={<LoginPage />} />
+
+        <Route element={<ProtectedRoute />}>
+          <Route path="/" element={<>HOME</>} />
+        </Route>
       </Routes>
     </div>
   )
