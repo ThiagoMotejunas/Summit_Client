@@ -26,7 +26,7 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className='pt-16'>
       <form onSubmit={handleLogin}>
         <div>
           <label htmlFor="login">Email:</label>
