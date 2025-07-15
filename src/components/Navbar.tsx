@@ -23,32 +23,30 @@ const Navbar: React.FC = () => {
     }
 
     return (
-        <header className='fixed top-0 w-full h-16'>
-            <nav className="lg:flex h-16 bg-white shadow-md">
-                <div className='flex h-full px-4 items-center'>
+        <header className='fixed top-0 w-full h-16 bg-white shadow-md'>
+            <nav className="lg:flex h-16 gap-12 px-4 ">
+                {/* LOGO */}
+                <div className='flex h-full items-center xl:flex-1/3'>
                     <h1 className='text-blue-400 text-2xl font-bold text-nowrap' style={{ fontFamily: 'Fascinate, cursive' }}>Projeto Summit</h1>
                 </div>
-                <div className='lg:hidden absolute right-4 top-4 text-2xl'>
-                    <button onClick={toggleMenu}>
-                        <FaBars />
-                    </button>
-                </div>
-                <div className={`${!isOpen ? 'hidden' : 'block'} bg-white px-4 py-4 shadow shadow-md shadow-gray-900/20 lg:flex lg:py-0 lg:items-center lg:justify-between lg:w-full lg:h-full lg:shadow-none`}>
-                    <div className='lg:flex lg:items-center lg:h-full'>
+                {/* MENU */}
+                <div className={`${!isOpen ? 'hidden' : 'realtive'} w-full bg-white py-4 shadow shadow-md shadow-gray-900/20 lg:flex lg:py-0 lg:items-center lg:justify-between lg:w-full lg:h-full lg:shadow-none xl:flex-2/3`}>
+                    {/* MENU LINKS */}
+                    <div className='lg:flex lg:items-center lg:h-full xl:w-1/2 xl:justify-center'>
                         <Link to="/"
-                            className={`flex items-center justify-start gap-2 text-gray-700 text-lg px-4 py-2 rounded-lg ${location.pathname === '/' ? 'bg-blue-400/20 ring ring-blue-200' : 'bg-white'} hover:text-white hover:bg-blue-400/80`}
+                            className={`flex items-center justify-start gap-2 text-gray-700 text-nowrap text-lg px-4 py-2 rounded-lg ${location.pathname === '/' ? 'bg-blue-400/20 ring ring-blue-200' : 'bg-white'} hover:text-white hover:bg-blue-400/80`}
                             onClick={closeMenu}>
                             <FaHome />
                             <span>Home</span>
                         </Link>
                         <Link to="/cursos"
-                            className={`flex items-center justify-start gap-2 text-gray-700 text-lg px-4 py-2 rounded-lg ${location.pathname === '/cursos' ? 'bg-blue-400/20 ring ring-blue-200' : 'bg-white'} hover:text-white hover:bg-blue-400/80`}
+                            className={`flex items-center justify-start gap-2 text-gray-700 text-nowrap text-lg px-4 py-2 rounded-lg ${location.pathname === '/cursos' ? 'bg-blue-400/20 ring ring-blue-200' : 'bg-white'} hover:text-white hover:bg-blue-400/80`}
                             onClick={closeMenu}>
                             <FaGraduationCap />
                             <span>Crusos</span>
                         </Link>
                         <Link to="/areas"
-                            className={`flex items-center justify-start gap-2 text-gray-700 text-lg px-4 py-2 rounded-lg ${location.pathname === '/areas' ? 'bg-blue-400/20 ring ring-blue-200' : 'bg-white'} hover:text-white hover:bg-blue-400/80`}
+                            className={`flex items-center justify-start gap-2 text-gray-700 text-nowrap text-lg px-4 py-2 rounded-lg ${location.pathname === '/areas' ? 'bg-blue-400/20 ring ring-blue-200' : 'bg-white'} hover:text-white hover:bg-blue-400/80`}
                             onClick={closeMenu}>
                             <GrUserWorker />
                             <span>Áreas de trabalho</span>
@@ -56,18 +54,19 @@ const Navbar: React.FC = () => {
                         {
                             user &&
                             <Link to="/favorites"
-                                className={`flex items-center justify-start gap-2 text-gray-700 text-lg px-4 py-2 rounded-lg ${location.pathname === '/areas' ? 'bg-blue-400/20 ring ring-blue-200' : 'bg-white'} hover:text-white hover:bg-blue-400/80`}
+                                className={`flex items-center justify-start gap-2 text-gray-700 text-nowrap text-lg px-4 py-2 rounded-lg ${location.pathname === '/areas' ? 'bg-blue-400/20 ring ring-blue-200' : 'bg-white'} hover:text-white hover:bg-blue-400/80`}
                                 onClick={closeMenu}>
                                 <FaStar />
                                 <span>Favoritos</span>
                             </Link>
                         }
                     </div>
-                    <div className='mt-2 lg:mt-0'>
+                    {/* MENU PROFILE OPTIONS */}
+                    <div className='mt-2 lg:mt-0 xl:w-content'>
                         {
                             user ?
                                 (
-                                    <div className='flex items-center gap-2 w-full'>
+                                    <div className='flex items-center justify-end gap-2 w-full'>
                                         <button className="flex justify-center items-center gap-2 w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700" onClick={closeMenu}>
                                             <IoPerson />
                                             <span>Perfil</span>
@@ -98,6 +97,12 @@ const Navbar: React.FC = () => {
                     </div>
                 </div>
             </nav>
+            {/* BURGER MENU BUTTON */}
+            <div className='lg:hidden absolute right-4 top-4 text-2xl'>
+                <button onClick={toggleMenu}>
+                    <FaBars />
+                </button>
+            </div>
         </header >
     );
 };

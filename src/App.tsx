@@ -3,13 +3,15 @@ import { Route, Routes } from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
 import ProtectedRoute from './components/ProtectedRoute'
 import HomePage from './pages/HomePage'
-import Navbar from './components/Navbar'
 import NotFound from './pages/NotFound'
+import MobileNavbar from './components/MobileNavbar'
+import Navbar from './components/Navbar'
 
 const App: React.FC = () => {
   return (
     <div>
-      <Navbar />
+      <MobileNavbar />
+      <Navbar/> 
       <Routes>
         <Route path='/login' element={<LoginPage />} />
         <Route path="/" element={<HomePage />} />

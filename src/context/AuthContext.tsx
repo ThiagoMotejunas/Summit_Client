@@ -15,6 +15,7 @@ export const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [user, setUser] = useState<User | null>(null);
+    const [token, setToken] = useState<string | null>(null);
 
     useEffect(() => {
         const storedUser = localStorage.getItem('user');
@@ -27,6 +28,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             const { user, token } = await loginUser(loginPayload);
             console.log(`AuthContext - LOGIN - User: ${user}\nToken ${token}`)
             setUser(user);
+            setToken(token);
             localStorage.setItem('user', JSON.stringify(user));
             localStorage.setItem('token', token);
         } catch (error) {
@@ -37,13 +39,16 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     const logout = () => {
         setUser(null);
+        setToken(null);
         localStorage.removeItem('user');
+        localStorage.removeItem('token');
     };
 
     const register = async (registerPayload: RegisterPayload) => {try {
             const { user, token } = await registerUser(registerPayload);
             console.log(`AuthContext - REGISTER - User: ${user}\nToken ${token}`)
             setUser(user);
+            setToken(token);
             localStorage.setItem('user', JSON.stringify(user));
             localStorage.setItem('token', token);
         } catch (error) {
