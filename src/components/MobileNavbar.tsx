@@ -1,18 +1,20 @@
 import React from 'react';
-import { FaGraduationCap, FaHome, FaStar } from 'react-icons/fa';
 import NavbarButton from './NavbarButton';
-import { IoPerson } from 'react-icons/io5';
+
+
+import MenuButtons from '../util/menu';
+
 
 const MobileNavbar: React.FC = () => {
 
     return (
-        <div className='fixed bottom-0 w-full bg-white lg:hidden'>
-            <nav className='flex justify-around items-center h-18 px-[4vw]'>
-                <NavbarButton icon={<FaHome />} label='Home' link='/' />
-                <NavbarButton icon={<FaGraduationCap />} label='Carreiras' link='/carrear' />
-                <NavbarButton icon={<FaGraduationCap />} label='Cursos' link='/courses' />
-                <NavbarButton icon={<FaStar />} label='Favoritos' link='/favorites' />
-                <NavbarButton icon={<IoPerson />} label='Perfil' link='/profile' />
+        <div className='fixed bottom-0 w-full h-18 bg-white shadow-[0_-4px_6_-1_black] lg:hidden'>
+            <nav className='flex justify-around items-center h-full px-[4vw] md:justify-center md:gap-12'>
+                {
+                    MenuButtons.map((button, index) => (
+                        <NavbarButton key={index} icon={button.icon} label={button.label} link={button.link} />
+                    ))
+                }
             </nav>
         </div>
     );

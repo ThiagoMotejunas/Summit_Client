@@ -6,6 +6,9 @@ import { useAuth } from '../hooks/useAuth';
 import { IoPerson } from 'react-icons/io5';
 import { FiLogOut } from 'react-icons/fi';
 
+
+import MenuButtons from '../util/menu';
+
 const DesktopNavbar: React.FC = () => {
     const { user, logout } = useAuth();
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -23,8 +26,8 @@ const DesktopNavbar: React.FC = () => {
     }
 
     return (
-        <header className='fixed top-0 w-full h-16 bg-white shadow-md hidden lg:block'>
-            <nav className="lg:flex h-16 gap-12 px-4 ">
+        <header className='fixed top-0 w-full h-18 bg-white shadow-md hidden lg:block'>
+            <nav className="lg:flex h-full gap-12 px-4 ">
                 {/* LOGO */}
                 <div className='flex h-full items-center xl:flex-1/3'>
                     <h1 className='text-blue-400 text-2xl font-bold text-nowrap' style={{ fontFamily: 'Fascinate, cursive' }}>Projeto Summit</h1>
@@ -32,33 +35,19 @@ const DesktopNavbar: React.FC = () => {
                 {/* MENU */}
                 <div className={`${!isOpen ? 'hidden' : 'realtive'} w-full bg-white py-4 shadow shadow-md shadow-gray-900/20 lg:flex lg:py-0 lg:items-center lg:justify-between lg:w-full lg:h-full lg:shadow-none xl:flex-2/3`}>
                     {/* MENU LINKS */}
-                    <div className='lg:flex lg:items-center lg:h-full xl:w-1/2 xl:justify-center'>
-                        <Link to="/"
-                            className={`flex items-center justify-start gap-2 text-gray-700 text-nowrap text-lg px-4 py-2 rounded-lg ${location.pathname === '/' ? 'bg-blue-400/20 ring ring-blue-200' : 'bg-white'} hover:text-white hover:bg-blue-400/80`}
-                            onClick={closeMenu}>
-                            <FaHome />
-                            <span>Home</span>
-                        </Link>
-                        <Link to="/cursos"
-                            className={`flex items-center justify-start gap-2 text-gray-700 text-nowrap text-lg px-4 py-2 rounded-lg ${location.pathname === '/cursos' ? 'bg-blue-400/20 ring ring-blue-200' : 'bg-white'} hover:text-white hover:bg-blue-400/80`}
-                            onClick={closeMenu}>
-                            <FaGraduationCap />
-                            <span>Crusos</span>
-                        </Link>
-                        <Link to="/areas"
-                            className={`flex items-center justify-start gap-2 text-gray-700 text-nowrap text-lg px-4 py-2 rounded-lg ${location.pathname === '/areas' ? 'bg-blue-400/20 ring ring-blue-200' : 'bg-white'} hover:text-white hover:bg-blue-400/80`}
-                            onClick={closeMenu}>
-                            <GrUserWorker />
-                            <span>Áreas de trabalho</span>
-                        </Link>
+                    <div className='flex items-center h-full gap-2 xl:w-1/2 xl:justify-center'>
                         {
-                            user &&
-                            <Link to="/favorites"
-                                className={`flex items-center justify-start gap-2 text-gray-700 text-nowrap text-lg px-4 py-2 rounded-lg ${location.pathname === '/areas' ? 'bg-blue-400/20 ring ring-blue-200' : 'bg-white'} hover:text-white hover:bg-blue-400/80`}
-                                onClick={closeMenu}>
-                                <FaStar />
-                                <span>Favoritos</span>
-                            </Link>
+                            MenuButtons.map((button, index) => (
+                                button.desktop &&
+                                <Link
+                                    key={index}
+                                    to={button.link}
+                                    className={`flex items-center justify-start gap-2 text-gray-700 text-nowrap text-lg px-4 py-2 rounded-lg ${location.pathname === button.link ? 'bg-blue-400/20 ring ring-blue-200' : 'bg-white'} hover:text-white hover:bg-blue-400/80`}
+                                    onClick={closeMenu}>
+                                    {button.icon}
+                                    <span>{button.label}</span>
+                                </Link>
+                            ))
                         }
                     </div>
                     {/* MENU PROFILE OPTIONS */}

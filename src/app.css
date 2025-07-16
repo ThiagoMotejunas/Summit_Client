@@ -1,0 +1,16 @@
+.grid-named {
+    display: grid;
+    grid-template-rows: 1fr 72px;
+    grid-template-areas:
+        "content "
+        "navbar";
+}
+
+@media (min-width: 1024px) {
+    .grid-named {
+        grid-template-rows: 72px 1fr;
+        grid-template-areas:
+            "navbar"
+            "content ";
+    }
+}

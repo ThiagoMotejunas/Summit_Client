@@ -1,12 +1,9 @@
 import { FaGraduationCap } from 'react-icons/fa';
-import { useAuth } from '../hooks/useAuth';
 
 const HomePage = () => {
 
-    const { user } = useAuth();
-
     return (
-        <div className='flex justify-center items-center min-h-screen px-6 bg-gradient-to-br from-blue-200 to-blue-100'>
+        <div className='flex justify-center h-full px-6 bg-gradient-to-br from-blue-200 to-blue-100'>
             <div className='flex flex-col justify-center items-center h-full'>
                 <h1 className='text-4xl text-center text-blue-500/80 font-medium tracking-[8px] md:text-5xl md:font-normal md:max-w-xl md:tracking-[12px]' style={{ fontFamily: 'Oswald, sans-serif' }}>DESPERTE SEU POTENCIAL</h1>
                 <p className='text-center text-gray-600 font-normal mt-2 md:max-w-xl md:mt-6 md:text-lg'>Explore cursos, descubra áreas de trabalho que combinam com você e comece hoje a jornada a carreira dos seus sonhos.</p>
