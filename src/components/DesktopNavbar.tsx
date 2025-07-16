@@ -6,7 +6,7 @@ import { useAuth } from '../hooks/useAuth';
 import { IoPerson } from 'react-icons/io5';
 import { FiLogOut } from 'react-icons/fi';
 
-const Navbar: React.FC = () => {
+const DesktopNavbar: React.FC = () => {
     const { user, logout } = useAuth();
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const location = useLocation();
@@ -107,4 +107,4 @@ const Navbar: React.FC = () => {
     );
 };
 
-export default Navbar;
+export default DesktopNavbar;

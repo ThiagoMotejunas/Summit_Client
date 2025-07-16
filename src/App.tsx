@@ -5,13 +5,13 @@ import ProtectedRoute from './components/ProtectedRoute'
 import HomePage from './pages/HomePage'
 import NotFound from './pages/NotFound'
 import MobileNavbar from './components/MobileNavbar'
-import Navbar from './components/Navbar'
+import DesktopNavbar from './components/DesktopNavbar'
 
 const App: React.FC = () => {
   return (
     <div>
       <MobileNavbar />
-      <Navbar/> 
+      <DesktopNavbar/> 
       <Routes>
         <Route path='/login' element={<LoginPage />} />
         <Route path="/" element={<HomePage />} />
