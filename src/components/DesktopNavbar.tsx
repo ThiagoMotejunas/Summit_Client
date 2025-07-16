@@ -23,7 +23,7 @@ const DesktopNavbar: React.FC = () => {
     }
 
     return (
-        <header className='fixed top-0 w-full h-16 bg-white shadow-md'>
+        <header className='fixed top-0 w-full h-16 bg-white shadow-md hidden lg:block'>
             <nav className="lg:flex h-16 gap-12 px-4 ">
                 {/* LOGO */}
                 <div className='flex h-full items-center xl:flex-1/3'>

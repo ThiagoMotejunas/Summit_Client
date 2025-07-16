@@ -6,12 +6,12 @@ import HomePage from './pages/HomePage'
 import NotFound from './pages/NotFound'
 import MobileNavbar from './components/MobileNavbar'
 import DesktopNavbar from './components/DesktopNavbar'
+import NavbarHolder from './components/NavbarHolder'
 
 const App: React.FC = () => {
   return (
     <div>
-      <MobileNavbar />
-      <DesktopNavbar/> 
+      <NavbarHolder />
       <Routes>
         <Route path='/login' element={<LoginPage />} />
         <Route path="/" element={<HomePage />} />
