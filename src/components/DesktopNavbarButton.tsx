@@ -5,11 +5,9 @@ interface NavbarButtonProps {
     icon: React.ReactNode;
     label: string;
     link: string;
-    className?: string;
-    
 }
 
-const DesktopNavbarButton: React.FC<NavbarButtonProps> = ({ link, icon, label, className }) => {
+const DesktopNavbarButton: React.FC<NavbarButtonProps> = ({ link, icon, label }) => {
 
     const [selected, setSelected] = useState<boolean>(false);
     const location = useLocation();

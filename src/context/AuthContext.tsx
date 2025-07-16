@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, type ReactNode, use } from 'react';
+import { createContext, useState, useEffect, type ReactNode } from 'react';
 import type User from '../dtos/user';
 import { loginUser, registerUser } from '../services/authService';
 import type { LoginPayloadDTO, RegisterPayload } from '../dtos/authentication';
@@ -6,6 +6,7 @@ import type { LoginPayloadDTO, RegisterPayload } from '../dtos/authentication';
 
 interface AuthContextType {
     user: User | null;
+    token: string | null;
     login: (loginPayload: LoginPayloadDTO) => Promise<void>;
     logout: () => void;
     register: (loginPayload: RegisterPayload) => Promise<void>;
@@ -58,7 +59,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
 
     return (
-        <AuthContext.Provider value={{ user, login, logout, register }}>
+        <AuthContext.Provider value={{ user, token, login, logout, register }}>
             {children}
         </AuthContext.Provider>
     );

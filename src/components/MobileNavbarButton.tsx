@@ -5,10 +5,9 @@ interface NavbarButtonProps {
     icon: React.ReactNode;
     label: string;
     link: string;
-    className?: string;
 }
 
-const MobileNavbarButton: React.FC<NavbarButtonProps> = ({ link, icon, label, className }) => {
+const MobileNavbarButton: React.FC<NavbarButtonProps> = ({ link, icon, label }) => {
 
     const [selected, setSelected] = useState<boolean>(false);
     const location = useLocation();

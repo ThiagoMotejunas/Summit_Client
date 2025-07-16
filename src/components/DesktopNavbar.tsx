@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { IoPerson } from 'react-icons/io5';
@@ -6,7 +6,6 @@ import { FiLogOut } from 'react-icons/fi';
 
 import MenuButtons from '../util/menu';
 import DesktopNavbarButton from './DesktopNavbarButton';
-import { FaBars } from 'react-icons/fa';
 
 const DesktopNavbar: React.FC = () => {
     const { user, logout } = useAuth();
