@@ -8,6 +8,7 @@ import { FiLogOut } from 'react-icons/fi';
 
 
 import MenuButtons from '../util/menu';
+import DesktopNavbarButton from './DesktopNavbarButton';
 
 const DesktopNavbar: React.FC = () => {
     const { user, logout } = useAuth();
@@ -39,14 +40,8 @@ const DesktopNavbar: React.FC = () => {
                         {
                             MenuButtons.map((button, index) => (
                                 button.desktop &&
-                                <Link
-                                    key={index}
-                                    to={button.link}
-                                    className={`flex items-center justify-start gap-2 text-gray-700 text-nowrap text-lg px-4 py-2 rounded-lg ${location.pathname === button.link ? 'bg-blue-400/20 ring ring-blue-200' : 'bg-white'} hover:text-white hover:bg-blue-400/80`}
-                                    onClick={closeMenu}>
-                                    {button.icon}
-                                    <span>{button.label}</span>
-                                </Link>
+                                
+                                <DesktopNavbarButton key={index} link={button.link} icon={button.icon} label={button.label}/> 
                             ))
                         }
                     </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import NavbarButton from './NavbarButton';
+import MobileNavbarButton from './MobileNavbarButton';
 
 
 import MenuButtons from '../util/menu';
@@ -12,7 +12,7 @@ const MobileNavbar: React.FC = () => {
             <nav className='flex justify-around items-center h-full px-[4vw] md:justify-center md:gap-12'>
                 {
                     MenuButtons.map((button, index) => (
-                        <NavbarButton key={index} icon={button.icon} label={button.label} link={button.link} />
+                        <MobileNavbarButton key={index} icon={button.icon} label={button.label} link={button.link} />
                     ))
                 }
             </nav>

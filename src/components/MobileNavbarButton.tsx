@@ -8,7 +8,7 @@ interface NavbarButtonProps {
     className?: string;
 }
 
-const NavbarButton: React.FC<NavbarButtonProps> = ({ link, icon, label, className }) => {
+const MobileNavbarButton: React.FC<NavbarButtonProps> = ({ link, icon, label, className }) => {
 
     const [selected, setSelected] = useState<boolean>(false);
     const location = useLocation();
@@ -36,4 +36,4 @@ const NavbarButton: React.FC<NavbarButtonProps> = ({ link, icon, label, classNam
     )
 }
 
-export default NavbarButton
+export default MobileNavbarButton
