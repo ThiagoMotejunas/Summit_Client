@@ -6,6 +6,7 @@ interface NavbarButtonProps {
     label: string;
     link: string;
     className?: string;
+    
 }
 
 const DesktopNavbarButton: React.FC<NavbarButtonProps> = ({ link, icon, label, className }) => {
