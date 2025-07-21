@@ -1,4 +1,4 @@
-import { FaGraduationCap, FaHome, FaStar } from "react-icons/fa";
+import { FaGraduationCap, FaHome, FaNetworkWired, FaStar } from "react-icons/fa";
 import { IoPerson } from "react-icons/io5";
 
 type MenuButton = {
@@ -17,8 +17,8 @@ const MenuButtons: MenuButton[] = [
   },
   {
     label: 'Carreiras',
-    link: '/carrears',
-    icon: <FaGraduationCap />,
+    link: '/carriers',
+    icon: <FaNetworkWired />,
     desktop: true
   },
   {

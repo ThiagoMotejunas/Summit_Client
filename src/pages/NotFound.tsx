@@ -1,6 +1,5 @@
 import React from 'react'
-import { FaGraduationCap } from 'react-icons/fa'
-import { GrUserWorker } from 'react-icons/gr'
+import { FaGraduationCap, FaNetworkWired } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 const NotFound: React.FC = () => {
@@ -15,9 +14,9 @@ const NotFound: React.FC = () => {
                         <FaGraduationCap />
                         <span>Cursos</span>
                     </Link>
-                    <Link to="/areas"
+                    <Link to="/carriers"
                         className={`flex items-center justify-center gap-2 w-full text-gray-700 text-lg py-2 rounded-lg bg-blue-400 ring ring-blue-200 text-white font-semibold`}>
-                        <GrUserWorker />
+                        <FaNetworkWired />
                         <span>Carreiras</span>
                     </Link>
                 </div>
