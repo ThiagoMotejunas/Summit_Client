@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound'
 import NavbarHolder from './components/NavbarHolder'
 
 import './app.css';
+import CoursesPage from './pages/CoursesPage'
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: React.FC = () => {
         <Routes >
           <Route path='/login' element={<LoginPage />} />
           <Route path="/" element={<HomePage />} />
+          <Route path="/courses" element={<CoursesPage />} />
           <Route element={<ProtectedRoute />}>
             <Route path="/areas/favorites" element={<NotFound />} />
           </Route>

@@ -1,0 +1,45 @@
+import React from 'react'
+import type { CourseCardDto } from '../dtos/CourseCardDTO';
+import { CiClock2 } from 'react-icons/ci';
+import { RiGraduationCapLine } from 'react-icons/ri';
+import { IoBookOutline } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
+
+interface CourseCardProp {
+  course: CourseCardDto;
+}
+
+const CourseCard: React.FC<CourseCardProp> = ({ course }) => {
+  return (
+    <div className='bg-gray-100 p-4 rounded-lg shadow-md w-full max-w-[24rem]'>
+      <p className='py-1.5 px-4 w-fit text-xs text-gray-800 bg-blue-100/60 font-semibold rounded-full'>{course.category.name}</p>
+      <div className='mt-4'>
+        <p className='text-md text-gray-900 font-bold'>{course.name}</p>
+        <p className='text-sm text-gray-600 mt-1'>{course.description}</p>
+      </div>
+      <div className='flex items-center justify-between my-4'>
+        <span className='flex items-center gap-1 text-gray-600'>
+          <CiClock2 className='text-md' />
+          <p className='text-sm'>
+            {course.yearsDuration} anos
+          </p>
+        </span>
+        <div className='flex items-center gap-2'>
+          <RiGraduationCapLine className='text-gray-500'/>
+          <span className='py-1 px-2 rounded-full ring ring-gray-400'>
+            <p className='text-xs font-medium text-gray-900'>{course.type}</p>
+          </span>
+        </div>
+      </div>
+      <p className='text-sm text-gray-500 font-medium'>Por: {course.instituition.name}</p>
+      <Link to={`/courses/${course.id}`} className='flex items-center justify-center bg-gray-900 py-2 rounded-sm mt-6'>
+          <IoBookOutline />
+          <p className='font-semibold text-gray-100'>
+            Ver detalhes
+          </p>
+        </Link>
+    </div>
+  )
+}
+
+export default CourseCard
