@@ -4,6 +4,7 @@ import { CiClock2 } from 'react-icons/ci';
 import { RiGraduationCapLine } from 'react-icons/ri';
 import { IoBookOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
+import { TiStarFullOutline, TiStarOutline } from 'react-icons/ti';
 
 interface CourseCardProp {
   course: CourseCardDto;
@@ -12,7 +13,12 @@ interface CourseCardProp {
 const CourseCard: React.FC<CourseCardProp> = ({ course }) => {
   return (
     <div className='bg-gray-100 p-4 rounded-lg shadow-md w-full max-w-[24rem]'>
-      <p className='py-1.5 px-4 w-fit text-xs text-gray-800 bg-blue-100/60 font-semibold rounded-full'>{course.category.name}</p>
+      <div className='flex items-center justify-between'>
+        <p className='py-1.5 px-4 w-fit text-xs text-gray-800 bg-blue-100/60 font-semibold rounded-full'>{course.category.name}</p>
+        <span className='text-xl text-gray-900'>
+          {course.favorite ? <TiStarFullOutline  /> : <TiStarOutline  />}
+        </span>
+      </div>
       <div className='mt-4'>
         <p className='text-md text-gray-900 font-bold'>{course.name}</p>
         <p className='text-sm text-gray-600 mt-1'>{course.description}</p>
@@ -25,7 +31,7 @@ const CourseCard: React.FC<CourseCardProp> = ({ course }) => {
           </p>
         </span>
         <div className='flex items-center gap-2'>
-          <RiGraduationCapLine className='text-gray-500'/>
+          <RiGraduationCapLine className='text-gray-500' />
           <span className='py-1 px-2 rounded-full ring ring-gray-400'>
             <p className='text-xs font-medium text-gray-900'>{course.type}</p>
           </span>
@@ -33,11 +39,11 @@ const CourseCard: React.FC<CourseCardProp> = ({ course }) => {
       </div>
       <p className='text-sm text-gray-500 font-medium'>Por: {course.instituition.name}</p>
       <Link to={`/courses/${course.id}`} className='flex items-center justify-center bg-gray-900 py-2 rounded-sm mt-6'>
-          <IoBookOutline />
-          <p className='font-semibold text-gray-100'>
-            Ver detalhes
-          </p>
-        </Link>
+        <IoBookOutline />
+        <p className='font-semibold text-gray-100'>
+          Ver detalhes
+        </p>
+      </Link>
     </div>
   )
 }

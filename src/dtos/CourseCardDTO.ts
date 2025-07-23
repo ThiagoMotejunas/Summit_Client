@@ -12,4 +12,5 @@ export interface CourseCardDto {
         id: number,
         name: string
     }
+    favorite: boolean,
 }

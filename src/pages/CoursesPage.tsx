@@ -53,7 +53,8 @@ const Courses: CourseCardDto[] = [
         instituition: {
             id: 1,
             name: 'Instituição de Tecnologia'
-        }
+        },
+        favorite: true
     },
     {
         id: 323,
@@ -68,7 +69,8 @@ const Courses: CourseCardDto[] = [
         instituition: {
             id: 1,
             name: 'Instituição de Tecnologia'
-        }
+        },
+        favorite: false
     },
     {
         id: 123,
@@ -83,7 +85,8 @@ const Courses: CourseCardDto[] = [
         instituition: {
             id: 2,
             name: 'Escola de Negócios'
-        }
+        },
+        favorite: false
     },
     {
         id: 324,
@@ -98,7 +101,8 @@ const Courses: CourseCardDto[] = [
         instituition: {
             id: 2,
             name: 'Escola de Negócios'
-        }
+        },
+        favorite: false
     },
     {
         
@@ -114,6 +118,7 @@ const Courses: CourseCardDto[] = [
         instituition: {
             id: 2,
             name: 'Escola de Negócios'
-        }
+        },
+        favorite: false
     }
 ];
