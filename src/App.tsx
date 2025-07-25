@@ -8,6 +8,7 @@ import NavbarHolder from './components/NavbarHolder'
 
 import './app.css';
 import CoursesPage from './pages/CoursesPage'
+import CarriersPage from './pages/CarriersPage'
 
 const App: React.FC = () => {
   return (
@@ -20,6 +21,7 @@ const App: React.FC = () => {
           <Route path='/login' element={<LoginPage />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/courses" element={<CoursesPage />} />
+          <Route path="/carriers" element={<CarriersPage />} />
           <Route element={<ProtectedRoute />}>
             <Route path="/areas/favorites" element={<NotFound />} />
           </Route>
