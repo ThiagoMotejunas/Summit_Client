@@ -1,55 +1,61 @@
-import React from 'react'
-import { CiClock2 } from 'react-icons/ci';
-import { RiGraduationCapLine } from 'react-icons/ri';
+import React from 'react';
 import { IoBookOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
-import { TiStarFullOutline, TiStarOutline } from 'react-icons/ti';
+import { IoIosCode } from 'react-icons/io';
+import { BsGraphUpArrow } from 'react-icons/bs';
 import type { CarrierCardDto } from '../dtos/CarrierCardDto';
 
+const IconClass = {
+    tecnologia: {
+        card_bg: "bg-gradient-to-r from-blue-50 to-blue-100/80",
+        icon: <IoIosCode />,
+        icon_bg: 'bg-gradient-to-r from-blue-400 to-blue-600',
+        ring: 'ring ring-blue-200'
+    },
+    marketing: {
+        card_bg: "bg-gradient-to-r from-green-50 to-green-100/80",
+        icon: <BsGraphUpArrow />,
+        icon_bg: 'bg-gradient-to-r from-green-400 to-green-600',
+        ring: 'ring ring-green-200'
+    },
+} as const;
+
+type CarrierKey = keyof typeof IconClass;
+
 interface CarrierCardProp {
-  carrier: CarrierCardDto;
+    carrier: CarrierCardDto;
 }
 
 const CarrierCard: React.FC<CarrierCardProp> = ({ carrier }) => {
-  return (
-    <div className='flex flex-col justify-between bg-gray-100 p-4 rounded-lg shadow-md w-full max-w-[24rem] h-full'>
-      <div>
-        <div className='flex items-center justify-between w-full'>
-          <p className='py-1.5 px-4 w-fit text-xs text-gray-800 bg-blue-100/60 font-semibold rounded-full'>{carrier.category.name}</p>
-          <span className='text-xl text-gray-900'>
-            {carrier.favorite ? <TiStarFullOutline /> : <TiStarOutline />}
-          </span>
-        </div>
-        <div className='mt-4 w-full'>
-          <p className='text-md text-gray-900 font-bold'>{carrier.name}</p>
-          <p className='text-sm text-gray-600 mt-1'>{carrier.description}</p>
-        </div>
-        <div className='flex items-center justify-between my-4 w-full'>
-          <span className='flex items-center gap-1 text-gray-600'>
-            <CiClock2 className='text-md' />
-            <p className='text-sm'>
-              {carrier.yearsDuration} anos
-            </p>
-          </span>
-          <div className='flex items-center gap-2'>
-            <RiGraduationCapLine className='text-gray-500' />
-            <span className='py-1 px-2 rounded-full ring ring-gray-400'>
-              <p className='text-xs font-medium text-gray-900'>{carrier.type}</p>
-            </span>
-          </div>
-        </div>
-        <div className='w-full'>
-          <p className='text-sm text-gray-500 font-medium'>Por: {carrier.instituition.name}</p>
-        </div>
-      </div>
-      <Link to={`/carriers/${carrier.id}`} className='flex items-center justify-center bg-gray-900 py-2 rounded-sm mt-6 w-full'>
-        <IoBookOutline />
-        <p className='font-semibold text-gray-100'>
-          Ver detalhes
-        </p>
-      </Link>
-    </div>
-  )
-}
+    const carrierKey = carrier.name.toLowerCase() as CarrierKey;
 
-export default CarrierCard
+    const carrierConfig = IconClass[carrierKey] || {
+        card_bg: "bg-gradient-to-r from-gray-50 to-gray-100/80",
+        icon: <IoBookOutline />,
+        icon_bg: 'bg-gradient-to-r from-gray-400 to-gray-600',
+    };
+
+    return (
+        <div className={`p-4 rounded-xl shadow-sm cursor-pointer ${carrierConfig.card_bg}`}>
+            <div className='flex justify-center'>
+                <div className={`flex justify-center items-center w-[4rem] aspect-square rounded-full ${carrierConfig.icon_bg} text-3xl text-white`}>
+                    {carrierConfig.icon}
+                </div>
+            </div>
+            <div className='flex flex-col items-center justify-center gap-2 mt-4'>
+                <h2 className='text-center font-semibold text-lg'>{carrier.name}</h2>
+                <p className='text-gray-700 text-sm text-center'>{carrier.description}</p>
+                <p className={`py-1 px-4 ${carrierConfig.card_bg} shadow-sm ${carrierConfig.ring} rounded-full text-center text-xs text-gray-900`}>
+                    {carrier.coursesAmount} cursos disponível
+                </p>
+            </div>
+            <div className={`w-full text-center py-2 rounded-lg ${carrierConfig.icon_bg} text-white font-semibold shadow-sm ring ring-gray-300 mt-4`}>
+                <Link to={`/courses/q?carrier=${carrier.id}`} className='w-full py-2'>
+                    Ver Cursos
+                </Link>
+            </div>
+        </div>
+    );
+};
+
+export default CarrierCard;
