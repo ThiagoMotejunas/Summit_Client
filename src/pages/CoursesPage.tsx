@@ -4,11 +4,12 @@ import SelectBox from '../components/Input/SelectBox';
 import CourseCard from '../components/CourseCard';
 import type { CourseCardDto } from '../dtos/CourseCardDTO';
 import SearchBox from '../components/Input/SearchBox';
+import DefaultPage from '../components/DefaultPage';
 
 const CoursesPage: React.FC = () => {
     const [selectedCategoryFilter, setSelectedCategoryFilter] = useState<string>(CoursesCategoryFilters[0]);
     return (
-        <div className='w-screen min-h-full px-6 py-20 bg-gradient-to-br from-blue-200 to-blue-100'>
+        <DefaultPage >
             <section>
                 <h1 className='text-2xl text-center text-blue-500/80 font-medium tracking-[8px]' style={{ fontFamily: 'Oswald, sans-serif' }}>EXPLORE OS CURSOS MAIS PROCURADOS</h1>
                 <p className='text-sm text-center text-gray-600 mt-2'>Descubra formações qualificadas em diferentes campos proffisionais.</p>
@@ -31,7 +32,7 @@ const CoursesPage: React.FC = () => {
                     ))
                 }
             </section>
-        </div>
+        </DefaultPage>
     )
 }
 

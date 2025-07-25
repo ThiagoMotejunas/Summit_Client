@@ -1,10 +1,11 @@
 import { FaGraduationCap, FaNetworkWired } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import DefaultPage from '../components/DefaultPage';
 
 const HomePage = () => {
 
     return (
-        <div className='flex justify-center h-full px-6 bg-gradient-to-br from-blue-200 to-blue-100'>
+        <DefaultPage >
             <div className='flex flex-col justify-center items-center max-w-lg h-full md:max-w-3xl'>
                 <h1 className='text-4xl text-center text-blue-500/80 font-medium tracking-[8px] md:text-5xl md:font-normal md:max-w-xl md:tracking-[12px]' style={{ fontFamily: 'Oswald, sans-serif' }}>DESPERTE SEU POTENCIAL</h1>
                 <p className='text-center text-gray-600 font-normal mt-2 md:max-w-xl md:mt-6 md:text-lg'>Explore cursos, descubra áreas de trabalho que combinam com você e comece hoje a jornada a carreira dos seus sonhos.</p>
@@ -27,7 +28,7 @@ const HomePage = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </DefaultPage>
     )
 }
 

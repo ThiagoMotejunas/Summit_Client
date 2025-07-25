@@ -1,10 +1,11 @@
 import React from 'react'
 import type { CarrierCardDto } from '../dtos/CarrierCardDto'
 import CarrierCard from '../components/CarrierCard'
+import DefaultPage from '../components/DefaultPage'
 
 const CarriersPage: React.FC = () => {
   return (
-    <div className='w-screen min-h-full px-6 py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50/7D'>
+    <DefaultPage >
       <section>
         <h1 className='text-3xl text-center text-blue-500/80 font-medium tracking-[8px]' style={{ fontFamily: 'Oswald, sans-serif' }}>EXPLORE OS CURSOS MAIS PROCURADOS</h1>
         <p className='text-lg text-center text-gray-600 mt-2'>Descubra formações qualificadas em diferentes campos proffisionais.</p>
@@ -16,7 +17,7 @@ const CarriersPage: React.FC = () => {
           ))
         }
       </section>
-    </div>
+    </DefaultPage>
   )
 }
 

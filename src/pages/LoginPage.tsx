@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
+import DefaultPage from '../components/DefaultPage';
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -26,29 +27,31 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className='pt-16'>
-      <form onSubmit={handleLogin}>
-        <div>
-          <label htmlFor="login">Email:</label>
-          <input
-            type="text"
-            id="login"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Senha:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <button type="submit">LOGIN</button>
-      </form>
-    </div>
+    <DefaultPage>
+      <div className='pt-16'>
+        <form onSubmit={handleLogin}>
+          <div>
+            <label htmlFor="login">Email:</label>
+            <input
+              type="text"
+              id="login"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="password">Senha:</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <button type="submit">LOGIN</button>
+        </form>
+      </div>
+    </DefaultPage>
   );
 };
 
