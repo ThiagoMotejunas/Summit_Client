@@ -10,28 +10,30 @@ const CoursesPage: React.FC = () => {
     const [selectedCategoryFilter, setSelectedCategoryFilter] = useState<string>(CoursesCategoryFilters[0]);
     return (
         <DefaultPage >
-            <section>
-                <h1 className='text-2xl text-center text-blue-500/80 font-medium tracking-[8px]' style={{ fontFamily: 'Oswald, sans-serif' }}>EXPLORE OS CURSOS MAIS PROCURADOS</h1>
-                <p className='text-sm text-center text-gray-600 mt-2'>Descubra formações qualificadas em diferentes campos proffisionais.</p>
-            </section>
-            <section className='mt-12'>
-                <SearchBox placeholder='Buscar cursos...' />
-                <div className='mt-6'>
-                    <div className='hidden sm:block'>
-                        <FilterItemsList items={CoursesCategoryFilters} selectedValue={selectedCategoryFilter} setSelectedValue={setSelectedCategoryFilter} />
+            <div className='mx-auto px-4 md:px-20 lg:px-32 xl:px-40'>
+                <section>
+                    <h1 className='text-2xl text-center text-blue-500/80 font-medium tracking-[8px] md:text-3xl md:tracking-[.8rem]' style={{ fontFamily: 'Oswald, sans-serif' }}>EXPLORE OS CURSOS MAIS PROCURADOS</h1>
+                    <p className='text-lg text-center text-gray-600 mt-2'>Descubra formações qualificadas em diferentes campos proffisionais.</p>
+                </section>
+                <section className='mt-12'>
+                    <SearchBox placeholder='Buscar cursos...' />
+                    <div className='mt-6'>
+                        <div className='hidden sm:block'>
+                            <FilterItemsList items={CoursesCategoryFilters} selectedValue={selectedCategoryFilter} setSelectedValue={setSelectedCategoryFilter} />
+                        </div>
+                        <div className='block sm:hidden'>
+                            <SelectBox items={CoursesCategoryFilters} selectedValue={selectedCategoryFilter} setSelectedValue={setSelectedCategoryFilter} />
+                        </div>
                     </div>
-                    <div className='block sm:hidden'>
-                        <SelectBox items={CoursesCategoryFilters} selectedValue={selectedCategoryFilter} setSelectedValue={setSelectedCategoryFilter} />
-                    </div>
-                </div>
-            </section>
-            <section className='w-full grid grid-cols-[repeat(auto-fit,minmax(256px,1fr))] place-items-center gap-4 mt-8'>
-                {
-                    Courses.map((course, index) => (
-                        <CourseCard key={index} course={course} />
-                    ))
-                }
-            </section>
+                </section>
+                <section className='w-full grid grid-cols-[repeat(auto-fit,minmax(19rem,1fr))] place-items-center gap-4 mt-8'>
+                    {
+                        Courses.map((course, index) => (
+                            <CourseCard key={index} course={course} />
+                        ))
+                    }
+                </section>
+            </div>
         </DefaultPage>
     )
 }
@@ -106,7 +108,7 @@ const Courses: CourseCardDto[] = [
         favorite: false
     },
     {
-        
+
         id: 200,
         name: 'Enfermagem',
         description: 'Curso de formação em cuidados clínicos, ética e saúde pública.',
