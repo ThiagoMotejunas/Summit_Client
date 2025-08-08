@@ -27,12 +27,12 @@ export default CarriersPage
 
 const Carriers: CarrierCardDto[] = [
   {
-    id: 323,
+    id: 1,
     name: 'Tecnologia',
     description: 'Programação, desenvolvimento web, mobile, inteligência artificial e muito mais.',
     coursesAmount: 141
   }, {
-    id: 123,
+    id: 2,
     name: 'Marketing',
     description: 'Marketing digital, publicidade, branding, redes sociais e estratégias de vendas.',
     coursesAmount: 89

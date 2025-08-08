@@ -50,7 +50,7 @@ const CarrierCard: React.FC<CarrierCardProp> = ({ carrier }) => {
                 </p>
             </div>
             <div className={`w-full text-center py-2 rounded-lg ${carrierConfig.icon_bg} text-white font-semibold shadow-sm ring ring-gray-300 mt-4`}>
-                <Link to={`/courses/q?carrier=${carrier.id}`} className='w-full py-2'>
+                <Link to={`/courses/${carrier.id}`} className='w-full py-2'>
                     Ver Cursos
                 </Link>
             </div>

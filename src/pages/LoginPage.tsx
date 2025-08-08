@@ -52,13 +52,16 @@ const LoginPage: React.FC = () => {
           </div>
           <div className='mt-8'>
             <form onSubmit={handleLogin} className={formClass}>
-              <FieldInput label={loginType === 0 ? 'Login:' : 'CNPJ:'} />
+              <FieldInput 
+                label={loginType === 0 ? 'Login:' : 'CNPJ:'} 
+                value=''
+                setValue={() => {}}/>
               <label htmlFor="email">{loginType === 0 ? 'Login:' : 'CNPJ:'}</label>
               <input
                 type="text"
                 name="email"
                 id="email"
-                value={formData.email}
+                value={formData.login}
                 onChange={handleInputChange}
               />
 

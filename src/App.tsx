@@ -21,9 +21,11 @@ const App: React.FC = () => {
           <Route path='/login' element={<LoginPage />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/courses" element={<CoursesPage />} />
+          <Route path="/courses/:carrierId" element={<CoursesPage />} />
           <Route path="/carriers" element={<CarriersPage />} />
           <Route element={<ProtectedRoute />}>
-            <Route path="/areas/favorites" element={<NotFound />} />
+            <Route path="/favorites" element={<NotFound />} />
+            <Route path="/profile" element={<NotFound />} />
           </Route>
           <Route path="/*" element={<NotFound />} />
         </Routes>

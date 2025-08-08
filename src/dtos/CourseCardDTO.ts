@@ -4,6 +4,7 @@ export interface CourseCardDto {
     description: string,
     yearsDuration: number,
     type: string,
+    carriers: number[],
     category: {
         id: number,
         name: string

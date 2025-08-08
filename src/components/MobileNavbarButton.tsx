@@ -12,13 +12,18 @@ const MobileNavbarButton: React.FC<NavbarButtonProps> = ({ link, icon, label }) 
     const [selected, setSelected] = useState<boolean>(false);
     const location = useLocation();
 
+
     useEffect(() => {
-        setSelected(location.pathname === link)
-    }, [location])
+        const locBase = location.pathname.split("/")[1] || ""; // pega a primeira parte depois de /
+        const linkBase = link.split("/")[1] || ""; // mesma coisa para link
+
+        setSelected(locBase === linkBase);
+    }, [location.pathname, link]);
+
 
     return (
         <Link to={link}
-            className={'flex flex-col justify-start items-center'}
+            className={'relative flex flex-col justify-start items-center'}
         >
             <span className={
                 `relative flex justify-center items-center w-[3rem] aspect-square rounded-full text-2xl outline-white transition duration-500 delay-50 ease-in-out ` +
@@ -30,7 +35,7 @@ const MobileNavbarButton: React.FC<NavbarButtonProps> = ({ link, icon, label }) 
             <span className={
                 `-mt-2 transition duration-500 ease-in-out ` +
                 `${selected ? '-translate-y-[1rem] text-blue-400 text-md font-semibold' : ''}`
-                }>{label}</span>
+            }>{label}</span>
         </Link>
     )
 }
