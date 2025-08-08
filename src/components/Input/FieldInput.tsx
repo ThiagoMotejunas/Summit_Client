@@ -9,11 +9,11 @@ interface FieldInputProps {
 }
 
 const FieldInput: React.FC<FieldInputProps> = ({ isPassword, label, value, setValue }) => {
-    const [showPassword, setShowPassword] = useState(isPassword);
+    const [showPassword, setShowPassword] = useState(!isPassword);
     return (
         <div>
-            <label htmlFor="email">{label}</label>
-            <div className='flex items-center ring ring-gray-300 p-2 rounded-lg focus-within:ring-blue-500'>
+            <label htmlFor="email">{label}:</label>
+            <div className='flex items-center ring ring-gray-300 p-2 rounded-lg focus-within:ring-blue-500 mt-1'>
                 <input
                     type={isPassword && !showPassword ? "password" : "text"}
                     name="email"
@@ -21,6 +21,7 @@ const FieldInput: React.FC<FieldInputProps> = ({ isPassword, label, value, setVa
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
                     className='flex-1 outline-none bg-transparent'
+                    placeholder={label}
                 />
                 {
                     isPassword &&
