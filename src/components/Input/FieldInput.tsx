@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { IoMdEye } from "react-icons/io";
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 
 interface FieldInputProps {
     isPassword?: boolean;
@@ -13,23 +13,26 @@ const FieldInput: React.FC<FieldInputProps> = ({ isPassword, label, value, setVa
     return (
         <div>
             <label htmlFor="email">{label}</label>
-            <input
-                type={isPassword ? "password" : "text"}
-                name="email"
-                id="email"
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-            />
-            {
-                isPassword &&
-                <div>
-                    {
-                        showPassword ?
-                            <IoMdEye onClick={() => setShowPassword(false)} /> :
-                            <IoMdEye onClick={() => setShowPassword(true)} />
-                    }
-                </div>
-            }
+            <div className='flex items-center ring ring-gray-300 p-2 rounded-lg focus-within:ring-blue-500'>
+                <input
+                    type={isPassword && !showPassword ? "password" : "text"}
+                    name="email"
+                    id="email"
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                    className='flex-1 outline-none bg-transparent'
+                />
+                {
+                    isPassword &&
+                    <div onClick={() => setShowPassword(prev => !prev)}>
+                        {
+                            showPassword ?
+                                <IoMdEyeOff /> :
+                                <IoMdEye />
+                        }
+                    </div>
+                }
+            </div>
         </div>
     )
 }

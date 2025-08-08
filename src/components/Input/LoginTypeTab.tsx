@@ -8,7 +8,7 @@ interface LoginTypeTabProps {
 const LoginTypeTab: React.FC<LoginTypeTabProps> = ({ value, setValue }) => {
 
     return (
-        <div className='relative flex justify-center items-center gap-2 p-1 bg-gray-400 rounded-xl overflow-hidden w-full'>
+        <div className='flex justify-center items-center gap-2 p-1 bg-gray-400 rounded-xl w-full'>
             {
                 loginTypes.map((loginType, index) => (
                     <button
