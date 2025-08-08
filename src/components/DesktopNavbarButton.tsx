@@ -13,8 +13,11 @@ const DesktopNavbarButton: React.FC<NavbarButtonProps> = ({ link, icon, label })
     const location = useLocation();
 
     useEffect(() => {
-        setSelected(location.pathname === link)
-    }, [location])
+            const locBase = location.pathname.split("/")[1] || "";
+            const linkBase = link.split("/")[1] || ""; 
+    
+            setSelected(locBase === linkBase);
+        }, [location.pathname, link]);
 
     return (
         <Link
